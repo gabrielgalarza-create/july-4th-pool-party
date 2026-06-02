@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 
 HERE = Path(__file__).parent
-REPO_BASE = "https://gabrielgalarza-create.github.io/the-blend-juneteenth"
+REPO_BASE = "https://gabrielgalarza-create.github.io/july-4th-pool-party"
 
 HOST_STYLES = """
 /* Simulated worst-case Webflow CSS bleed */

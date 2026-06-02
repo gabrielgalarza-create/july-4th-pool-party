@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Test host (simulated Webflow CSS bleed)</title>
+<style>
+/* Simulated worst-case Webflow CSS bleed */
+body { font-family: Arial; margin:0; padding:24px; background:#fafafa; }
+h1,h2 { font-family: 'Times New Roman', serif }
+h3,a { font-family: Georgia, serif }
+a { text-decoration: underline; color: #06c }
+p { margin: 22px 0 }
+.nav { flex-direction: column; background: #f0a }
+.btn { width: 44px; display: block; border-radius: 999px; padding: 9px }
+.container { max-width: 820px }
+.card { background: red; border: 4px solid lime }
+.hero { flex-direction: column }
+.band { background: teal }
+.w-embed { padding: 16px; border: 2px dashed #888; }
+</style>
+</head>
+<body>
+<h1>Host page heading (outside embed - should be Times serif)</h1>
+<h2>Outside .ottff heading - also Times serif</h2>
+<p>Host paragraph outside the embed. Should have margin 22px 0 and Arial body font.</p>
+
+<div class="w-embed">
+<!-- July 4th Pool Party - namespaced NATIVE embed (prefixed classes) -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles-embed.css" />
+<div class="ottff">
+<header class="ff-nav">
+  <a href="#top" class="ff-nav__brand">
+    <img class="ff-brand-mark" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/logos/ott.png" alt="Over The Top" />
+    <span class="ff-brand-divider"></span>
+    <span class="ff-brand-event">JULY 4TH</span>
+  </a>
+  <nav class="ff-nav__links">
+    <a href="#vision">Vision</a>
+    <a href="#included">Included</a>
+    <a href="#vip">VIP</a>
+    <a href="#onsite">On-Site</a>
+    <a href="#partners">Partners</a>
+  </nav>
+  <a class="ff-btn ff-btn--small ff-btn--yellow" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" target="_blank" rel="noopener">Register Now</a>
+</header>
+
+<!-- HERO -->
+<section class="ff-hero" id="top">
+  <img class="ff-hero__bg" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/hero.jpg" alt="Over The Top pool party crowd" />
+  <div class="ff-hero__overlay"></div>
+  <div class="ff-hero__content">
+    <div class="ff-hero__eyebrow">
+      <span class="ff-dot"></span> Hotel Nikko, San Francisco &#183; Sat July 4, 2026 &#183; 2&ndash;5PM
+    </div>
+    <h1 class="ff-hero__title">
+      <span class="ff-line">JULY 4TH</span>
+      <span class="ff-line ff-line--yellow">POOL PARTY</span>
+      <span class="ff-line ff-line--small">A SUMMER DAY PARTY</span>
+    </h1>
+    <p style="font-family:var(--display); font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--yellow); margin:0 0 26px;">Presented by Over The Top</p>
+    <div class="ff-hero__ctas">
+      <a class="ff-btn ff-btn--yellow ff-btn--lg" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" target="_blank" rel="noopener">Register Now &#8594;</a>
+      <a class="ff-btn ff-btn--ghost ff-btn--lg" href="#included">See what's included</a>
+    </div>
+    <div class="ff-hero__partners">
+      <span class="ff-hero__partners-label">Good to know</span>
+      <p style="font-size:14px; color:rgba(255,255,255,.82); margin:0; max-width:580px;">
+        21+ event &#183; Poolside at Hotel Nikko San Francisco &#183; Swimwear welcome, cover-ups for the bar.
+      </p>
+    </div>
+  </div>
+  <div class="ff-hero__scroll">scroll &#8595;</div>
+</section>
+
+<!-- VISION + STATS -->
+<section class="ff-band ff-band--yellow" id="vision">
+  <div class="ff-container">
+    <div class="ff-vision__grid">
+      <div class="ff-vision__copy">
+        <span class="ff-kicker">The vision</span>
+        <h2 class="ff-h2">Sunshine, cocktails, music, and the pool. Fourth of July, Over The Top style.</h2>
+        <p>
+          Over The Top is taking over the pool at Hotel Nikko San Francisco this Fourth of July. An
+          afternoon of sunshine, cocktails, music, and the kind of energy that makes a holiday weekend.
+        </p>
+        <p>
+          Three hours poolside in the heart of downtown San Francisco. Bring your crew, your swimwear,
+          and your best summer energy.
+        </p>
+      </div>
+      <div class="ff-vision__stats">
+        <div class="ff-stat"><div class="ff-stat__num">2&ndash;5PM</div><div class="ff-stat__label">Poolside party</div></div>
+        <div class="ff-stat"><div class="ff-stat__num">July 4</div><div class="ff-stat__label">Independence Day</div></div>
+        <div class="ff-stat"><div class="ff-stat__num">21+</div><div class="ff-stat__label">Day party</div></div>
+        <div class="ff-stat"><div class="ff-stat__num">SF</div><div class="ff-stat__label">Hotel Nikko pool</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: WHAT'S INCLUDED IN YOUR TICKET (free with entry) -->
+<section class="ff-band" id="included">
+  <div class="ff-container">
+    <span class="ff-kicker">Included with your ticket</span>
+    <h2 class="ff-h2">Included in your experience.</h2>
+    <p class="ff-lede" style="margin:-12px 0 24px; max-width:780px;">
+      Pool and deck access, music all afternoon, and the photo moments. All included with your ticket.
+    </p>
+
+    <div class="ff-rail" data-rail>
+      <button class="ff-rail__nav ff-rail__nav--prev" type="button" aria-label="Previous">&#8249;</button>
+      <div class="ff-rail__viewport">
+        <div class="ff-rail__track">
+
+          <article class="ff-card ff-card--rail" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-2.jpg" alt="Pool and deck access" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--free">Included in your experience</span>
+                <span class="ff-card__attr">by Over The Top</span>
+              </div>
+              <h3 class="ff-card__title">Pool &amp; Deck Access</h3>
+              <p class="ff-card__sub">2 PM &ndash; 5 PM &#183; Hotel Nikko pool</p>
+              <div class="ff-card__expand">
+                <p>Full access to the pool and deck at Hotel Nikko San Francisco all afternoon.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+          <article class="ff-card ff-card--rail" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/dj-sets.jpg" alt="Poolside DJ and music" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--free">Included in your experience</span>
+                <span class="ff-card__attr">the lineup</span>
+              </div>
+              <h3 class="ff-card__title">Poolside DJ &amp; Music</h3>
+              <p class="ff-card__sub">2 PM &ndash; 5 PM &#183; all afternoon</p>
+              <div class="ff-card__expand">
+                <p>Summer sets and feel-good music poolside from doors to last call.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+          <article class="ff-card ff-card--rail" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/momentus-photo-booth.jpg" alt="Photo moments" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--free">Included in your experience</span>
+                <span class="ff-card__attr">by Over The Top</span>
+              </div>
+              <h3 class="ff-card__title">Photo Moments</h3>
+              <p class="ff-card__sub">All day &#183; keepsake shots</p>
+              <div class="ff-card__expand">
+                <p>Capture the day with photo moments by the pool all afternoon.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+      <button class="ff-rail__nav ff-rail__nav--next" type="button" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: WHAT'S INCLUDED WITH VIP -->
+<section class="ff-band ff-band--dark" id="vip">
+  <div class="ff-container">
+    <span class="ff-kicker ff-kicker--yellow">VIP / Members</span>
+    <h2 class="ff-h2 ff-h2--light">What's included with VIP access.</h2>
+    <p class="ff-lede" style="color:rgba(255,255,255,.7); margin:-12px 0 24px; max-width:780px;">
+      VIP and member tickets unlock a reserved poolside cabana, bottle service, and priority entry all afternoon.
+    </p>
+
+    <div class="ff-rail" data-rail>
+      <button class="ff-rail__nav ff-rail__nav--prev" type="button" aria-label="Previous">&#8249;</button>
+      <div class="ff-rail__viewport">
+        <div class="ff-rail__track">
+
+          <article class="ff-card ff-card--rail ff-card--dark" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/vip-lounge.jpg" alt="Poolside cabana" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--vip">VIP ticket only</span>
+                <span class="ff-card__attr">poolside</span>
+              </div>
+              <h3 class="ff-card__title">Poolside Cabana</h3>
+              <p class="ff-card__sub">All day &#183; reserved seating</p>
+              <div class="ff-card__expand">
+                <p>A reserved cabana with shade and seating right by the pool, away from the crowd.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+          <article class="ff-card ff-card--rail ff-card--dark" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/vip-espresso.jpg" alt="Bottle service" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--vip">VIP ticket only &#183; 21+</span>
+                <span class="ff-card__attr">at your cabana</span>
+              </div>
+              <h3 class="ff-card__title">Bottle Service</h3>
+              <p class="ff-card__sub">Reserved service to your cabana</p>
+              <div class="ff-card__expand">
+                <p>Reserved bottle service brought right to your cabana all afternoon. 21+.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+          <article class="ff-card ff-card--rail ff-card--dark" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/vip-hostess.jpg" alt="Priority entry" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--vip">VIP ticket only</span>
+                <span class="ff-card__attr">on arrival</span>
+              </div>
+              <h3 class="ff-card__title">Priority Entry &amp; Host</h3>
+              <p class="ff-card__sub">Skip the line, hosted to your cabana</p>
+              <div class="ff-card__expand">
+                <p>VIP guests skip the door line and are walked straight to their cabana by a dedicated host.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+      <button class="ff-rail__nav ff-rail__nav--next" type="button" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: WHAT'S PROVIDED ON SITE (pay-as-you-go) -->
+<section class="ff-band ff-band--cream" id="onsite">
+  <div class="ff-container">
+    <span class="ff-kicker">Provided on site</span>
+    <h2 class="ff-h2">Bar &amp; bites.</h2>
+    <p class="ff-lede" style="margin:-12px 0 24px; max-width:780px;">
+      Drinks and bites available all afternoon. Cash bar pricing, buy by the glass. 21+ for the bar.
+    </p>
+
+    <div class="ff-rail" data-rail>
+      <button class="ff-rail__nav ff-rail__nav--prev" type="button" aria-label="Previous">&#8249;</button>
+      <div class="ff-rail__viewport">
+        <div class="ff-rail__track">
+
+          <article class="ff-card ff-card--rail" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/full-bar.jpg" alt="Full bar pours" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--cash">Pay as you go &#183; 21+</span>
+                <span class="ff-card__attr">poolside</span>
+              </div>
+              <h3 class="ff-card__title">Full Bar</h3>
+              <p class="ff-card__sub">All day &#183; 21+ &#183; cash bar</p>
+              <div class="ff-card__expand">
+                <p>A full bar poolside all afternoon. Beer, wine, cocktails, and spirits. Pay-as-you-go, 21+.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+          <article class="ff-card ff-card--rail" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/slushies.jpg" alt="Frozen summer cocktails" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--cash">Pay as you go &#183; 21+</span>
+                <span class="ff-card__attr">poolside</span>
+              </div>
+              <h3 class="ff-card__title">Frozen Cocktails</h3>
+              <p class="ff-card__sub">All day &#183; 21+</p>
+              <div class="ff-card__expand">
+                <p>Frozen summer cocktails built for a hot afternoon by the pool. Cash bar.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+          <article class="ff-card ff-card--rail" data-card>
+            <img class="ff-card__img" src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/food.jpg" alt="Poolside bites for purchase" />
+            <div class="ff-card__body">
+              <div class="ff-card__access-row">
+                <span class="ff-card__access ff-card__access--cash">Pay as you go</span>
+                <span class="ff-card__attr">on site</span>
+              </div>
+              <h3 class="ff-card__title">Poolside Bites</h3>
+              <p class="ff-card__sub">All day &#183; for purchase on site</p>
+              <div class="ff-card__expand">
+                <p>Bites and small plates available for purchase all afternoon. Pay-as-you-go.</p>
+              </div>
+              <button class="ff-card__toggle" aria-label="Expand">+</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+      <button class="ff-rail__nav ff-rail__nav--next" type="button" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<!-- RUN OF SHOW (hidden on the public page; still available at run-of-show.html) -->
+<section class="ff-band ff-band--dark" id="schedule" hidden>
+  <div class="ff-container">
+    <span class="ff-kicker ff-kicker--yellow">Run of show</span>
+    <h2 class="ff-h2 ff-h2--light">A day designed to flow.</h2>
+    <p class="ff-lede" style="color:rgba(255,255,255,.7); margin:-12px 0 36px; max-width:780px;">
+      Doors at 2, last pour at 5. Three hours of sunshine, music, and the pool at Hotel Nikko. Times below are a draft and may shift.
+    </p>
+
+    <ol class="ff-schedule">
+      <li><span class="ff-schedule__time">2:00 PM</span><span class="ff-schedule__title">Doors open &#183; Pool opens</span><span class="ff-schedule__sub">Music starts poolside</span></li>
+      <li><span class="ff-schedule__time">2:30 PM</span><span class="ff-schedule__title">Bar &amp; cabanas open</span><span class="ff-schedule__sub">21+ &#183; cash bar all day &#183; VIP cabanas</span></li>
+      <li><span class="ff-schedule__time">3:30 PM</span><span class="ff-schedule__title">Peak set</span><span class="ff-schedule__sub">The afternoon hits its stride</span></li>
+      <li><span class="ff-schedule__time">4:45 PM</span><span class="ff-schedule__title">Last call &amp; closing set</span><span class="ff-schedule__sub">Final pours from the bar</span></li>
+      <li><span class="ff-schedule__time">5:00 PM</span><span class="ff-schedule__title">Event ends</span><span class="ff-schedule__sub">Happy Fourth from Over The Top</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- VENUE (hidden on the public page) -->
+<section class="ff-band ff-band--cream" id="venue" hidden>
+  <div class="ff-container">
+    <span class="ff-kicker">Venue &amp; directions</span>
+    <h2 class="ff-h2">Hotel Nikko, San Francisco.</h2>
+    <p class="ff-lede" style="margin:-12px 0 28px; max-width:780px;">
+      222 Mason St, San Francisco, CA 94102. A pool in the heart of downtown San Francisco, steps from Union Square. Public transit and nearby garages recommended.
+    </p>
+    <div class="ff-venue-cta">
+      <a class="ff-btn ff-btn--black ff-btn--lg" href="https://www.google.com/maps/search/?api=1&query=Hotel+Nikko+222+Mason+St+San+Francisco+CA" target="_blank" rel="noopener">Get directions</a>
+    </div>
+    <p style="text-align:center; margin:22px 0 0; font-size:14px; color:var(--gray-500); letter-spacing:.04em;">
+      21+ event &nbsp;&#183;&nbsp; All tickets non-refundable &nbsp;&#183;&nbsp; Downtown SF, transit recommended
+    </p>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="ff-band ff-band--cream" id="partners">
+  <div class="ff-container">
+    <span class="ff-kicker">Partners</span>
+    <h2 class="ff-h2">Hosted at Hotel Nikko San Francisco.</h2>
+    <p class="ff-lede" style="margin:-12px 0 8px; max-width:780px;">
+      An Over The Top production, poolside at Hotel Nikko in the heart of downtown San Francisco.
+    </p>
+
+    <p class="ff-partners-cta">
+      Want your brand at the party? <a href="mailto:experienceott@gmail.com?subject=July%204th%20Pool%20Party%20Partnership">Email us</a>
+      or DM <a href="https://instagram.com/overthetopxp" target="_blank" rel="noopener">@overthetopxp</a> to talk activation.
+    </p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="ff-band" id="gallery">
+  <div class="ff-container">
+    <span class="ff-kicker">Past editions</span>
+    <h2 class="ff-h2">What it actually looks like.</h2>
+  </div>
+  <div class="ff-gallery">
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-1.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-2.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-3.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-4.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-5.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-6.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-7.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-8.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-9.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-10.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-11.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-12.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-13.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-14.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-15.jpg" alt="" loading="lazy" />
+    <img src="https://gabrielgalarza-create.github.io/july-4th-pool-party/images/gallery-16.jpg" alt="" loading="lazy" />
+  </div>
+</section>
+
+<!-- REGISTER / CTA -->
+<section class="ff-band ff-band--yellow" id="register">
+  <div class="ff-container ff-container--narrow ff-text-center">
+    <span class="ff-kicker">Get in</span>
+    <h2 class="ff-h2" style="margin-bottom:32px;">Pre-register now and lock your spot.</h2>
+    <div class="ff-cta-row">
+      <a class="ff-btn ff-btn--black ff-btn--lg" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" target="_blank" rel="noopener">Register Now &#8594;</a>
+    </div>
+    <p style="margin:24px 0 0; font-size:14px; color:var(--ink-2);">
+      Questions? DM <a href="https://instagram.com/overthetopxp" target="_blank" rel="noopener" style="font-weight:600; text-decoration:underline;">@overthetopxp</a>
+      or email <a href="mailto:experienceott@gmail.com" style="font-weight:600; text-decoration:underline;">experienceott@gmail.com</a>
+    </p>
+  </div>
+</section>
+
+<script src="script-embed.js"></script>
+</div>
+
+</div>
+
+<h2>Another host heading after the embed - Times serif again</h2>
+</body>
+</html>
