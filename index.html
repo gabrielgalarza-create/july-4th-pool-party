@@ -47,7 +47,11 @@ src="https://www.facebook.com/tr?id=1495548463835448&ev=PageView&noscript=1"
   <nav class="nav__links">
     <a href="#vision">Vision</a>
   </nav>
-  <a class="btn btn--small btn--yellow" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" target="_blank" rel="noopener">Register Now</a>
+  <span class="rsvp-trigger rsvp-trigger--sm">
+    <a class="btn btn--small btn--yellow" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" tabindex="-1" aria-hidden="true">Pre-Register</a>
+    <iframe class="rsvp-trigger__frame" title="Pre-Register"
+            src="https://sweatpals.com/embed/4th-of-july-pool-party/buy-ticket?priceTierId=48515bac-a7c0-4e96-8b7e-aa19247d13ba&size=md&colorHex=FFD60A&fontFamily=Inter&buttonText=Pre-Register&loader=false"></iframe>
+  </span>
 </header>
 
 <!-- HERO -->
@@ -65,7 +69,11 @@ src="https://www.facebook.com/tr?id=1495548463835448&ev=PageView&noscript=1"
     </h1>
     <p style="font-family:var(--display); font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--yellow); margin:0 0 26px;">Presented by Over The Top</p>
     <div class="hero__ctas">
-      <a class="btn btn--yellow btn--lg" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" target="_blank" rel="noopener">Register Now →</a>
+      <span class="rsvp-trigger rsvp-trigger--lg">
+        <a class="btn btn--yellow btn--lg" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" tabindex="-1" aria-hidden="true">Pre-Register →</a>
+        <iframe class="rsvp-trigger__frame" title="Pre-Register"
+                src="https://sweatpals.com/embed/4th-of-july-pool-party/buy-ticket?priceTierId=48515bac-a7c0-4e96-8b7e-aa19247d13ba&size=lg&colorHex=FFD60A&fontFamily=Inter&buttonText=Pre-Register&loader=false"></iframe>
+      </span>
       <a class="btn btn--ghost btn--lg" href="#vision">Learn more</a>
     </div>
     <div class="hero__partners">
@@ -428,7 +436,11 @@ src="https://www.facebook.com/tr?id=1495548463835448&ev=PageView&noscript=1"
     <span class="kicker">Get in</span>
     <h2 class="h2" style="margin-bottom:32px;">Pre-register now and lock your spot.</h2>
     <div class="cta-row">
-      <a class="btn btn--black btn--lg" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" target="_blank" rel="noopener">Register Now →</a>
+      <span class="rsvp-trigger rsvp-trigger--lg">
+        <a class="btn btn--black btn--lg" data-register href="https://sweatpals.com/event/4th-of-july-pool-party" tabindex="-1" aria-hidden="true">Pre-Register →</a>
+        <iframe class="rsvp-trigger__frame" title="Pre-Register"
+                src="https://sweatpals.com/embed/4th-of-july-pool-party/buy-ticket?priceTierId=48515bac-a7c0-4e96-8b7e-aa19247d13ba&size=lg&colorHex=000000&fontFamily=Inter&buttonText=Pre-Register&loader=false"></iframe>
+      </span>
     </div>
     <p style="margin:24px 0 0; font-size:14px; color:var(--ink-2);">
       Questions? DM <a href="https://instagram.com/overthetopxp" target="_blank" rel="noopener" style="font-weight:600; text-decoration:underline;">@overthetopxp</a>
@@ -437,15 +449,8 @@ src="https://www.facebook.com/tr?id=1495548463835448&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- REGISTER / WAITLIST MODAL -->
-<div class="reg-modal" data-reg-modal aria-hidden="true" role="dialog" aria-modal="true" aria-label="Pool Party sign-up">
-  <div class="reg-modal__dialog">
-    <button class="reg-modal__close" type="button" data-reg-close aria-label="Close sign-up">&#215;</button>
-    <div class="reg-modal__loader">Loading sign-up&#8230;</div>
-    <iframe class="reg-modal__frame" data-reg-iframe title="July 4th Pool Party sign-up" loading="lazy"></iframe>
-  </div>
-</div>
-
 <script src="script.js"></script>
+<!-- Sweatpals Pre-Register / waitlist checkout overlay (opens the sign-up modal on Pre-Register clicks) -->
+<script src="https://sweatpals.com/static/embed/event/checkout/script.js?enableAutoEmbed=false&eventAlias=4th-of-july-pool-party&colorHex=ffffff&fontFamily=Poppins&priceTierId=48515bac-a7c0-4e96-8b7e-aa19247d13ba"></script>
 </body>
 </html>

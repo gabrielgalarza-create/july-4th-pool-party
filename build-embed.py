@@ -207,6 +207,7 @@ JS_SELECTORS = [
     (".partner, .stat, .aud, .vendor", ".ff-partner, .ff-stat, .ff-aud, .ff-vendor"),
     (".nav__links a", ".ff-nav__links a"),
     (".hero__ctas a", ".ff-hero__ctas a"),
+    (".rsvp-trigger", ".ff-rsvp-trigger"),
 ]
 
 

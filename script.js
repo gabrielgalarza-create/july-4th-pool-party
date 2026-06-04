@@ -152,53 +152,21 @@ document.querySelectorAll('.partner, .stat, .aud, .vendor').forEach((el) => {
     }
   }
 
-  // Register CTAs open the Sweatpals sign-up / waitlist in an in-page modal.
-  // Without JS the buttons still navigate to the Sweatpals event page (href
-  // fallback). With JS we intercept, pop the modal, and lazy-load the iframe.
-  // Fire both the Amplitude event and the Meta "Lead" (registration intent).
-  const regModal = document.querySelector('[data-reg-modal]');
-  const regFrame = regModal ? regModal.querySelector('[data-reg-iframe]') : null;
-
-  function openRegModal(srcUrl) {
-    if (!regModal) return;
-    if (regFrame && srcUrl && regFrame.getAttribute('src') !== srcUrl) {
-      regFrame.setAttribute('src', srcUrl);
-    }
-    regModal.classList.add('is-open');
-    regModal.setAttribute('aria-hidden', 'false');
-  }
-  function closeRegModal() {
-    if (!regModal) return;
-    regModal.classList.remove('is-open');
-    regModal.setAttribute('aria-hidden', 'true');
-  }
-
-  document.querySelectorAll('[data-register]').forEach((el) => {
-    el.addEventListener('click', (e) => {
+  // Pre-Register CTAs use the Sweatpals buy-ticket overlay + checkout script,
+  // which opens the Sweatpals sign-up / waitlist modal in-page. The visible
+  // OTT button sits under an invisible Sweatpals iframe inside .rsvp-trigger,
+  // so the click lands on Sweatpals. We fire a best-effort Amplitude event and
+  // Meta "Lead" on pointerdown over each trigger (Sweatpals also fires
+  // CompleteRegistration/Purchase to the same pixel from its own flow).
+  document.querySelectorAll('.rsvp-trigger').forEach((el) => {
+    el.addEventListener('pointerdown', () => {
       const section = el.closest('section');
       track('cta_pre_register_clicked', {
-        location: section ? section.id || 'unknown' : 'nav',
-        text: el.textContent.trim()
+        location: section ? section.id || 'unknown' : 'nav'
       });
-      metaTrack('Lead', { content_name: 'July 4th Pool Party Register' });
-      // Prefer the modal; fall back to the link's normal navigation if absent.
-      if (regModal) {
-        e.preventDefault();
-        openRegModal(el.getAttribute('href'));
-      }
+      metaTrack('Lead', { content_name: 'July 4th Pool Party Pre-Register' });
     });
   });
-
-  if (regModal) {
-    regModal.addEventListener('click', (e) => {
-      if (e.target === regModal || e.target.closest('[data-reg-close]')) {
-        closeRegModal();
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeRegModal();
-    });
-  }
 
   // Nav link clicks (which sections people are jumping to)
   document.querySelectorAll('.nav__links a').forEach((el) => {
