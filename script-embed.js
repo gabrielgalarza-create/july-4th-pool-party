@@ -152,18 +152,53 @@ document.querySelectorAll('.ff-partner, .ff-stat, .ff-aud, .ff-vendor').forEach(
     }
   }
 
-  // Register CTA clicks: these now link out to the Sweatpals event page.
+  // Register CTAs open the Sweatpals sign-up / waitlist in an in-page modal.
+  // Without JS the buttons still navigate to the Sweatpals event page (href
+  // fallback). With JS we intercept, pop the modal, and lazy-load the iframe.
   // Fire both the Amplitude event and the Meta "Lead" (registration intent).
+  const regModal = document.querySelector('[data-reg-modal]');
+  const regFrame = regModal ? regModal.querySelector('[data-reg-iframe]') : null;
+
+  function openRegModal(srcUrl) {
+    if (!regModal) return;
+    if (regFrame && srcUrl && regFrame.getAttribute('src') !== srcUrl) {
+      regFrame.setAttribute('src', srcUrl);
+    }
+    regModal.classList.add('ff-is-open');
+    regModal.setAttribute('aria-hidden', 'false');
+  }
+  function closeRegModal() {
+    if (!regModal) return;
+    regModal.classList.remove('ff-is-open');
+    regModal.setAttribute('aria-hidden', 'true');
+  }
+
   document.querySelectorAll('[data-register]').forEach((el) => {
-    el.addEventListener('click', () => {
+    el.addEventListener('click', (e) => {
       const section = el.closest('section');
       track('cta_pre_register_clicked', {
         location: section ? section.id || 'unknown' : 'nav',
         text: el.textContent.trim()
       });
       metaTrack('Lead', { content_name: 'July 4th Pool Party Register' });
+      // Prefer the modal; fall back to the link's normal navigation if absent.
+      if (regModal) {
+        e.preventDefault();
+        openRegModal(el.getAttribute('href'));
+      }
     });
   });
+
+  if (regModal) {
+    regModal.addEventListener('click', (e) => {
+      if (e.target === regModal || e.target.closest('[data-reg-close]')) {
+        closeRegModal();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeRegModal();
+    });
+  }
 
   // Nav link clicks (which sections people are jumping to)
   document.querySelectorAll('.ff-nav__links a').forEach((el) => {
