@@ -76,13 +76,6 @@
   margin: 0 0 28px;
   text-transform: uppercase;
 }
-.ottff #vision .ff-h2 {
-  font-family: var(--body);
-  font-weight: 600;
-  text-transform: none;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
-}
 .ottff .ff-h2--light { color: var(--white); }
 .ottff .ff-lede {
   font-size: clamp(16px, 1.6vw, 19px);
