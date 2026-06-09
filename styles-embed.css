@@ -11,8 +11,11 @@
 /* ===== Scoped + prefixed festival styles ===== */
 
 .ottff {
-  --yellow: #FFD60A;
-  --yellow-deep: #F5C400;
+  
+  --yellow: #FF3E84;
+  --yellow-deep: #E62E73;
+  --aqua: #16C8C8;
+  --aqua-deep: #0FB5BA;
   --black: #0A0A0A;
   --ink: #111111;
   --ink-2: #1a1a1a;
@@ -211,8 +214,8 @@
   margin-bottom: 24px;
 }
 .ottff .ff-hero__eyebrow .ff-dot {
-  width: 8px; height: 8px; border-radius: 50%; background: var(--yellow);
-  box-shadow: 0 0 0 4px rgba(255,214,10,.25);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--aqua);
+  box-shadow: 0 0 0 4px rgba(22,200,200,.28);
 }
 .ottff .ff-hero__title {
   font-family: var(--display);
@@ -333,7 +336,7 @@
   font-family: var(--display);
   font-size: clamp(32px, 4vw, 48px);
   line-height: 1;
-  color: var(--yellow);
+  color: var(--aqua);
   margin-bottom: 6px;
 }
 .ottff .ff-stat__label {
