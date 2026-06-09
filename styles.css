@@ -1038,6 +1038,10 @@ button { font: inherit; }
 }
 .partners-cta a { font-weight: 600; text-decoration: underline; }
 
+.partner-logos { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 20px 0 6px; }
+.partner-logo { display: inline-flex; align-items: center; justify-content: center; background: #fff; border-radius: 14px; padding: 14px 22px; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+.partner-logo img { height: 46px; width: auto; display: block; }
+
 @media (max-width: 480px) {
   .partner { flex-basis: 172px; }
 }
