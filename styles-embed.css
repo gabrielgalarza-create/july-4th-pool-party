@@ -673,6 +673,18 @@
   max-width: 760px;
 }
 @media (max-width: 600px) {.ottff .ff-lineup-grid { grid-template-columns: 1fr; gap: 16px; }}
+.ottff .ff-card-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ottff .ff-card-link:hover { color: var(--yellow-deep); }
 @media (hover: none) and (pointer: coarse) {.ottff .ff-card-marquee {
     overflow-x: auto;
     overflow-y: hidden;

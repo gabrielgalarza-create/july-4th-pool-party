@@ -738,6 +738,20 @@ button { font: inherit; }
   .lineup-grid { grid-template-columns: 1fr; gap: 16px; }
 }
 
+/* Visible in-card link (e.g. Group Weekend Bundle booking) */
+.card-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.card-link:hover { color: var(--yellow-deep); }
+
 /* Touch devices: swap the auto-marquee for a native swipeable rail */
 @media (hover: none) and (pointer: coarse) {
   .card-marquee {
