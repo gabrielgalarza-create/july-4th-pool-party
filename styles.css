@@ -72,6 +72,14 @@ button { font: inherit; }
   margin: 0 0 28px;
   text-transform: uppercase;
 }
+/* Vision headline: lighter, sentence-case treatment */
+#vision .h2 {
+  font-family: var(--body);
+  font-weight: 600;
+  text-transform: none;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
 .h2--light { color: var(--white); }
 
 .lede {
